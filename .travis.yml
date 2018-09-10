@@ -1,0 +1,13 @@
+language: python
+sudo: required
+python:
+  - "2.7"
+services:
+  - docker
+addons:
+  ssh_known_hosts: localhost
+before_install:
+  - docker pull efagerberg/pytest-fabric-sshd
+  - python setup.py install
+  - docker rm -f pytest-fabric-test-container || true
+script: "pytest"
