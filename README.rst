@@ -1,4 +1,5 @@
 pytest-fabric
+-------------
 
 .. image:: https://travis-ci.org/efagerberg/pytest-fabric.svg?branch=master
     :target: https://travis-ci.org/efagerberg/pytest-fabric
@@ -28,7 +29,7 @@ things like the image files and such.
 
 Note: This should work for docker-machine or docker
 
-::
+.. codeblock:: python
 
 from mytasks import task
 
