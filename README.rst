@@ -29,12 +29,17 @@ things like the image files and such.
 
 Note: This should work for docker-machine or docker
 
-.. codeblock:: python
+.. code:: python
 
-from mytasks import task
+    from fabric.api import execute
 
-def test_fabric_task(fabric_host):
-    execute(task)
+    from .fabric_tasks import create_readme
+
+
+    def test_fabric_task_executes(fabric_host):
+        execute(create_readme)
+        ls_results = fabric_host.exec_run('ls /tmp/')
+        assert ls_results[1].strip() == 'README.rst'
 
 
 Note: pytest-capture does not like when we try to actually write to stdout like in fabric so make sure to add ``-s`` to your pytest args
